@@ -9,9 +9,14 @@ public class ForLoopScript : MonoBehaviour {
     {
         int x = 0;
 
-        for (int i = 0; i < 10; i++)
+        System.Diagnostics.Stopwatch stopWatch =
+            new System.Diagnostics.Stopwatch();
+        stopWatch.Start();
+        for (int i = 0; i < 500; i++)
         {
             x += i;
         }
+        stopWatch.Stop();
+        Debug.Log("Time taken: " + (stopWatch.Elapsed));
     }
 }
