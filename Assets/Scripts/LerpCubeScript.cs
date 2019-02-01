@@ -10,12 +10,18 @@ public class LerpCubeScript : MonoBehaviour {
 
     public void StartLerp()
     {
+
         _cube.transform.position = _leftPosition;
+
         StartCoroutine(LerpCube());
+
     }
 
     IEnumerator LerpCube()
     {
+        System.Diagnostics.Stopwatch stopWatch =
+            new System.Diagnostics.Stopwatch();
+        stopWatch.Start();
         float t = 0;
 
         while (t < 1)
@@ -29,6 +35,8 @@ public class LerpCubeScript : MonoBehaviour {
             }
             yield return null;
         }
+        stopWatch.Stop();
+        Debug.Log("Time taken: " + (stopWatch.Elapsed));
     }
 
     //inseert code here:
